@@ -1,0 +1,67 @@
+{
+  "version": "0.1.0",
+  "description": "Easy-to-use, typed, and tested utility to find the neighbors of a cell in a matrix.",
+  "license": "MIT",
+  "main": "dist/index.js",
+  "typings": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "src"
+  ],
+  "engines": {
+    "node": ">=10"
+  },
+  "scripts": {
+    "start": "tsdx watch",
+    "build": "tsdx build",
+    "test": "tsdx test",
+    "lint": "tsdx lint",
+    "make-coverage-badges": "istanbul-badges-readme",
+    "prepare": "tsdx build",
+    "size": "size-limit"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "tsdx lint"
+    }
+  },
+  "prettier": {
+    "printWidth": 80,
+    "semi": false,
+    "singleQuote": true,
+    "trailingComma": "all"
+  },
+  "name": "find-neighbors-in-matrix",
+  "author": "David Sorrentino",
+  "module": "dist/find-neighbors-in-matrix.esm.js",
+  "size-limit": [
+    {
+      "path": "dist/find-neighbors-in-matrix.cjs.production.min.js",
+      "limit": "500 B"
+    },
+    {
+      "path": "dist/find-neighbors-in-matrix.esm.js",
+      "limit": "300 B"
+    }
+  ],
+  "jest": {
+    "coverageReporters": ["json-summary"],
+    "coverageThreshold": {
+      "global": {
+        "branches": 99,
+        "functions": 99,
+        "lines": 99,
+        "statements": 99
+      }
+    }
+  },
+  "devDependencies": {
+    "@size-limit/preset-small-lib": "^7.0.8",
+    "husky": "^7.0.4",
+    "istanbul-badges-readme": "1.8.1",
+    "size-limit": "^7.0.8",
+    "tsdx": "^0.14.1",
+    "tslib": "^2.3.1",
+    "typescript": "^3.9.10"
+  }
+}
