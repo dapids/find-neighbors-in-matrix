@@ -1,28 +1,23 @@
 name: CI
-on: [push]
+on: [pull_request]
 jobs:
   build:
-    name: Build, lint, and test on Node ${{ matrix.node }} and ${{ matrix.os }}
-
-    runs-on: ${{ matrix.os }}
-    strategy:
-      matrix:
-        node: ['14.x']
-        os: [ubuntu-latest]
-
+    name: Build, lint, test, and check size
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout repo
         uses: actions/checkout@v2
 
-      - name: Use Node ${{ matrix.node }}
+      - name: Use Node 14.x
         uses: actions/setup-node@v1
         with:
-          node-version: ${{ matrix.node }}
+          node-version: '14.x'
+          registry-url: 'https://registry.npmjs.org'
 
-      - name: Install deps and build (with cache)
+      - name: Install deps
         uses: borales/actions-yarn@v2.3.0
         with:
-          cmd: install
+          cmd: install --immutable
 
       - name: Lint
         uses: borales/actions-yarn@v2.3.0
@@ -38,3 +33,8 @@ jobs:
         uses: borales/actions-yarn@v2.3.0
         with:
           cmd: build
+
+      - name: Check size
+        uses: borales/actions-yarn@v2.3.0
+        with:
+          cmd: size
