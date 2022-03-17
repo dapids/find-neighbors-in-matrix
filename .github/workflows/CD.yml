@@ -28,8 +28,6 @@ jobs:
           cmd: build
 
       - name: Publish
-        uses: borales/actions-yarn@v2.3.0
+        uses: JS-DevTools/npm-publish@v1
         with:
-          cmd: publish
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+          token: ${{ secrets.NPM_TOKEN }}
