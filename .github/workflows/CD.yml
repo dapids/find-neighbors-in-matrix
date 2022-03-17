@@ -1,0 +1,35 @@
+name: CD
+on:
+  push:
+    branches:
+      - main
+jobs:
+  build:
+    name: Build and publish
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v2
+
+      - name: Use Node 14.x
+        uses: actions/setup-node@v1
+        with:
+          node-version: '14.x'
+          registry-url: 'https://registry.npmjs.org'
+
+      - name: Install deps
+        uses: borales/actions-yarn@v2.3.0
+        with:
+          cmd: install --immutable
+
+      - name: Build
+        uses: borales/actions-yarn@v2.3.0
+        with:
+          cmd: build
+
+      - name: Publish
+        uses: borales/actions-yarn@v2.3.0
+        with:
+          cmd: publish
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
