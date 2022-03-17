@@ -16,19 +16,19 @@ yarn add -E find-neighbors-in-matrix # or npm install find-neighbors-in-matrix
 import { findNeighborsInMatrix } from 'find-neighbors-in-matrix'
 
 const matrix = [
-  [1, 0, 1],
   [1, 1, 1],
-  [0, 0, 1],
+  [1, 1, 1],
+  [1, 1, 1],
 ]
 
-const cell = [0, 0]
+const cell = [0, 0] // x, y
 
-findNeighborsInMatrix({ cell, matrix }) // [[1, 0], [1, 1], [0, 1]]
+const neighbors = findNeighborsInMatrix({ cell, matrix }) // [[1, 0], [1, 1], [0, 1]]
 ```
 
 ## Contribute
 
-This library leverages [TSDX](https://tsdx.io/) for easing the DX.
+The library leverages [TSDX](https://tsdx.io/) as a boilerplate.
 
 To run the library, use:
 
