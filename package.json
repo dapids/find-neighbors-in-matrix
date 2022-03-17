@@ -1,5 +1,5 @@
 {
-  "version": "0.1.1",
+  "version": "0.2.0",
   "description": "Easy-to-use, typed, and tested utility to find the neighbors of a cell in a matrix.",
   "license": "MIT",
   "main": "dist/index.js",
@@ -56,6 +56,6 @@
     "size-limit": "^7.0.8",
     "tsdx": "^0.14.1",
     "tslib": "^2.3.1",
-    "typescript": "^3.9.10"
+    "typescript": "^4.6.2"
   }
 }
