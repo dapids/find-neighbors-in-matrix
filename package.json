@@ -1,5 +1,5 @@
 {
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Easy-to-use, typed, and tested utility to find the neighbors of a cell in a matrix.",
   "license": "MIT",
   "main": "dist/index.js",
@@ -19,11 +19,6 @@
     "make-coverage-badges": "istanbul-badges-readme",
     "prepare": "tsdx build",
     "size": "size-limit"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "tsdx lint"
-    }
   },
   "prettier": {
     "printWidth": 80,
@@ -57,7 +52,6 @@
   },
   "devDependencies": {
     "@size-limit/preset-small-lib": "^7.0.8",
-    "husky": "^7.0.4",
     "istanbul-badges-readme": "1.8.1",
     "size-limit": "^7.0.8",
     "tsdx": "^0.14.1",
